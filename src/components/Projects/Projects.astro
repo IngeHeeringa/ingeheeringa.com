@@ -1,106 +1,24 @@
 ---
-import Angular from "../../assets/icons/angular.png";
-import ExpressJs from "../../assets/icons/express.png";
-import Jest from "../../assets/icons/jest.png";
-import JWT from "../../assets/icons/jwt.png";
-import MongoDB from "../../assets/icons/mongodb.png";
-import NodeJs from "../../assets/icons/nodejs.png";
-import React from "../../assets/icons/react.png";
-import Sass from "../../assets/icons/sass.png";
-import StyledComponents from "../../assets/icons/styledcomponents.png";
-import TypeScript from "../../assets/icons/ts.png";
-import peer2peerLogo from "../../assets/projects/peer2peer-logo.svg";
-import wiztagramLogo from "../../assets/projects/wiztagram-logo.svg";
+import Project from "@components/Project/Project.astro";
+import { projects } from "src/data/projectData";
 ---
 
 <section class="section projects-section" id="projects-section">
   <h2 class="section__heading projects-heading">Projects</h2>
   <div class="projects">
-    <article class="projects__project project">
-      <img
-        src={peer2peerLogo}
-        alt="peer2peer logo"
-        width="300"
-        height="300"
-        class="project__image project__image--peer2peer"
-      />
-      <div class="project__body">
-        <h3 class="project__title">peer2peer</h3>
-        <div class="project__info">
-          Peer2peer is a full-stack single page application that provides a
-          platform for collaboration among programmers. It features secure user
-          authentication using JWT to protect users' data and privacy. The
-          platform's key feature is its ability to allow users to create posts
-          requesting pair programming by listing their project's details and
-          their level of experience.
-        </div>
-        <div class="project__stack">
-          <img src={Angular} alt="Angular logo" width="40" height="40" />
-          <img src={TypeScript} alt="TypeScript logo" width="40" height="40" />
-          <img src={Sass} alt="Sass logo" width="40" height="40" />
-          <img src={Jest} alt="Jest logo" width="40" height="40" />
-          <img src={JWT} alt="JSON Web Token logo" width="40" height="40" />
-          <img src={MongoDB} alt="MongoDB logo" width="40" height="40" />
-          <img src={NodeJs} alt="Node.js logo" width="40" height="40" />
-          <img src={ExpressJs} alt="Node.js logo" width="40" height="40" />
-        </div>
-        <div class="project__redirect-buttons redirect-buttons">
-          <a
-            class="redirect-buttons__github"
-            href="https://github.com/IngeHeeringa/peer2peer-front"
-            target="_blank"><span>View code</span></a
-          >
-          <a
-            class="redirect-buttons__production"
-            href="https://peer2peer.vercel.app/"
-            target="_blank"><span>View demo</span></a
-          >
-        </div>
-      </div>
-    </article>
-    <article class="projects__project project">
-      <img
-        src={wiztagramLogo}
-        alt="Wiztagram logo"
-        width="300"
-        height="300"
-        class="project__image project__image--wiztagram"
-      />
-      <div class="project__body">
-        <h3 class="project__title">Wiztagram</h3>
-        <div class="project__info">
-          Wiztagram is a magic-themed image visualizer, built with React and the
-          Redux pattern. It utilizes the Unsplash API to search and filter
-          through keyword queries, delivering enchanting visual results. This
-          front-end SPA offers a user-friendly interface, allowing users to
-          bring the magic of the mystical world to life through the power of
-          technology.
-        </div>
-        <div class="project__stack">
-          <img src={React} alt="React logo" width="40" height="40" />
-          <img src={TypeScript} alt="TypeScript logo" width="40" height="40" />
-          <img
-            src={StyledComponents}
-            alt="Styled Components logo"
-            width="40"
-            height="40"
-          />
-          <img src={Jest} alt="Jest logo" width="40" height="40" />
-        </div>
-        <div class="project__redirect-buttons redirect-buttons">
-          <a
-            class="redirect-buttons__github"
-            href="https://github.com/IngeHeeringa/wiztagram"
-            target="_blank"><span>View code</span></a
-          >
-          <a
-            class="redirect-buttons__production"
-            href="https://wiztagram.vercel.app/"
-            target="_blank"><span>View demo</span></a
-          >
-        </div>
-      </div>
-    </article>
+    {
+      projects.map((project) => (
+        <Project
+          title={project.title}
+          image={project.image}
+          imageClass={project.imageClass}
+          description={project.description}
+          stack={project.stack}
+          repo={project.repo}
+          prod={project.prod}
+        />
+      ))
+    }
   </div>
 </section>
 
@@ -119,113 +37,5 @@ import wiztagramLogo from "../../assets/projects/wiztagram-logo.svg";
     justify-content: center;
     padding: 20px 40px;
     min-height: 80vh;
-  }
-
-  .project {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    padding-bottom: 40px;
-    border-bottom: solid 1px var(--blue-light);
-    gap: 40px;
-    &__image--iejewels {
-      border-radius: 50%;
-      padding: 20px;
-      filter: invert(20%) brightness(95%) contrast(100%);
-      background-color: #c4decd;
-    }
-
-    &__body {
-      display: flex;
-      align-items: center;
-      padding: 20px 0;
-      flex-direction: column;
-      width: 100%;
-      gap: 50px;
-    }
-
-    &__title {
-      font-family: var(--display-font);
-      font-weight: 300;
-      font-size: 3.5rem;
-      text-align: center;
-      color: var(--yellow);
-      width: 100%;
-    }
-
-    &__info {
-      width: 100%;
-      color: var(--blue-light);
-      font-family: var(--primary-font);
-      font-size: 1.8rem;
-      text-align: justify;
-      line-height: 3rem;
-    }
-
-    &__stack {
-      width: 100%;
-      height: fit-content;
-      padding: 10px;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      font-size: 3rem;
-      color: var(--yellow);
-      border-top: 1px solid var(--yellow);
-      border-bottom: 1px solid var(--yellow);
-    }
-  }
-
-  .redirect-buttons {
-    width: 100%;
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    font-size: 2rem;
-    color: var(--blue-light);
-
-    &__github,
-    &__production {
-      padding: 10px 15px;
-      border: 1px solid var(--yellow);
-      width: 50%;
-      text-align: center;
-    }
-
-    &__github,
-    &__github:visited,
-    &__github:active,
-    &__production,
-    &__production:visited,
-    &__production:active {
-      color: var(--yellow);
-      background-color: transparent;
-      transition: 0.2s;
-
-      &:hover {
-        color: var(--blue-dark);
-        background-color: var(--yellow);
-      }
-    }
-  }
-
-  @media (min-width: 768px) {
-    .project {
-      &:nth-child(odd) {
-        flex-direction: row;
-      }
-
-      &:nth-child(even) {
-        flex-direction: row-reverse;
-      }
-
-      &__body {
-        width: 55%;
-      }
-    }
   }
 </style>
