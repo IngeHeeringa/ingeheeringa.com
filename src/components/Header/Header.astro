@@ -1,0 +1,89 @@
+<header class="header" id="header">
+  <div class="title-wrapper">
+    <h1 class="header__title">Inge<br />Heeringa</h1>
+    <span class="header__subtitle">Web Developer</span>
+  </div>
+</header>
+
+<style lang="scss">
+  .header {
+    background: linear-gradient(
+        0deg,
+        rgba(31, 30, 33, 0.4) 0%,
+        rgba(28, 28, 28, 0.3) 50%
+      ),
+      url("../../assets/header/header.webp");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    &__title {
+      color: var(--yellow);
+      font-family: var(--display-font);
+      font-weight: 100;
+      font-size: 4.5rem;
+      letter-spacing: 0.8rem;
+      text-transform: uppercase;
+
+      &::after {
+        content: "";
+        height: 1px;
+        background-color: var(--blue-dark);
+        display: block;
+        width: 100%;
+        margin: 0;
+      }
+    }
+
+    &__subtitle {
+      margin: 20px 0;
+      font-family: var(--primary-font);
+      font-size: 2rem;
+      text-transform: lowercase;
+      color: var(--blue-light);
+      letter-spacing: 1rem;
+      text-align: right;
+    }
+  }
+
+  .title-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: auto;
+    padding: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .title-wrapper {
+      position: absolute;
+      top: auto;
+      bottom: 200px;
+      left: 30px;
+      width: 600px;
+      padding: 0;
+    }
+
+    .header__title {
+      font-size: 7.5rem;
+
+      &::after {
+        width: 80%;
+        margin-left: 20%;
+      }
+    }
+
+    .header__subtitle {
+      margin-top: 10px;
+      align-self: flex-end;
+      text-align: left;
+      font-size: 3rem;
+      letter-spacing: 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,114 @@
+---
+import "@fontsource/elsie";
+import "@fontsource/karla/200.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="Hi there! I am Inge Heeringa, a full-stack web developer based in Barcelona. This is my personal portfolio page."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global lang="scss">
+  :root {
+    --display-font: "Elsie", serif;
+    --primary-font: "Karla", sans-serif;
+    --dark: #1f1e21;
+    --blue-dark: #293e4a;
+    --blue-light: #b3bec3;
+    --yellow: #ffb847;
+  }
+
+  html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-size: 10px;
+  }
+
+  *,
+  ::before,
+  ::after {
+    box-sizing: inherit;
+    -khtml-user-select: none;
+    user-select: none;
+    margin: 0;
+  }
+
+  body {
+    min-height: 100vh;
+    margin: auto;
+    background-color: var(--dark);
+  }
+
+  header,
+  section {
+    min-height: inherit;
+    position: relative;
+  }
+
+  p,
+  a {
+    font-family: var(--primary-font);
+    font-weight: 200;
+  }
+
+  a,
+  a:active,
+  a:visited {
+    text-decoration: none;
+    color: var(--yellow);
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  .section {
+    &__heading {
+      align-self: center;
+      padding: 4rem;
+      color: var(--yellow);
+      font-family: var(--display-font);
+      font-weight: 100;
+      font-size: 5rem;
+      letter-spacing: 0.5rem;
+      text-transform: uppercase;
+
+      &::after {
+        content: "";
+        height: 1px;
+        background-color: var(--blue-light);
+        width: 80%;
+        margin-left: 10%;
+        display: block;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      &__heading {
+        align-self: flex-end;
+      }
+    }
+  }
+</style>

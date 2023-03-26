@@ -1,0 +1,160 @@
+---
+import AboutMe from "../../assets/aboutme/aboutme.webp";
+---
+
+<section class="section about-section" id="about-section">
+  <h2 class="section__heading about-heading">About</h2>
+  <div class="about">
+    <img
+      src={AboutMe}
+      alt="Inge"
+      class="about__photo"
+      width="300"
+      height="450"
+    />
+    <div class="about__introduction introduction">
+      <p class="introduction__text">
+        Passionate about building web projects by bringing logic and creativity
+        together.
+      </p>
+      <p class="introduction__text">
+        Originally from the Netherlands, I moved to Barcelona in 2015 to
+        complete my studies in Spanish and Catalan Language and Literature.
+      </p>
+      <p class="introduction__text">
+        I first got in touch with styling when creating lookup pages for my
+        Neopets in the 2000s. A lot has changed since then (luckily not only for
+        CSS), but my heart still skips a beat when I find the perfect font or
+        create a pretty color palette.
+        <p class="introduction__text">
+          Besides being an avid reader and (not so slightly) obsessed with my
+          two cats, my hobbies include anything creative, from making jewelry to
+          writing novels that end up on my own bookshelf only.
+        </p>
+        <div class="introduction__links">
+          <ul class="links">
+            <li class="links__icon">
+              <a
+                href="https://github.com/IngeHeeringa"
+                target="_blank"
+                aria-label="GitHub icon"><i class="fab fa-github"></i></a
+              >
+            </li>
+            <li class="links__icon">
+              <a
+                href="https://www.linkedin.com/in/inge-heeringa/"
+                target="_blank"
+                aria-label="LinkedIn icon"><i class="fab fa-linkedin-in"></i></a
+              >
+            </li>
+            <li class="links__icon">
+              <a
+                href="https://codepen.io/your-work"
+                target="_blank"
+                aria-label="CodePen icon"><i class="fab fa-codepen"></i></a
+              >
+            </li>
+          </ul>
+        </div>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .about-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 50px;
+  }
+
+  .about {
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+    &__introduction {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    &__photo {
+      max-width: 100%;
+      height: auto;
+      opacity: 0.9;
+    }
+  }
+
+  .introduction {
+    &__text {
+      padding: 15px 0;
+      font-size: 2rem;
+      color: var(--blue-light);
+      text-align: justify;
+      line-height: 3rem;
+
+      &:first-child {
+        font-size: 2.5rem;
+        font-weight: 700;
+        font-family: var(--display-font);
+        color: var(--yellow);
+        letter-spacing: 0.3rem;
+        text-align: center;
+      }
+    }
+
+    &__links {
+      width: 100%;
+      padding: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+
+    &__links::before {
+      content: "";
+      height: 1px;
+      width: 60%;
+      background-color: var(--blue-light);
+    }
+  }
+
+  .links {
+    width: 100%;
+    padding-left: 0;
+    padding-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+
+    &__icon {
+      padding: 0 3rem;
+      transition: 0.2s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .about {
+      flex-direction: row;
+      gap: 100px;
+
+      &__introduction {
+        width: 55%;
+      }
+    }
+  }
+</style>

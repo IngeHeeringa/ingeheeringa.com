@@ -1,0 +1,21 @@
+{
+  "name": "ingeheeringa.com",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource/elsie": "^4.5.7",
+    "@fontsource/karla": "^4.5.11",
+    "@fortawesome/fontawesome-free": "^6.3.0",
+    "astro": "^2.0.12"
+  },
+  "devDependencies": {
+    "sass": "^1.58.3"
+  }
+}
