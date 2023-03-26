@@ -1,0 +1,151 @@
+---
+const { title, image, imageClass, description, stack, repo, prod } =
+  Astro.props;
+---
+
+<article class="project">
+  <img
+    src={image}
+    alt={`${title} logo`}
+    width="300"
+    height="300"
+    class={`project__image project__image--${imageClass}`}
+  />
+  <div class="project__body">
+    <h3 class="project__title">{title}</h3>
+    <div class="project__info">
+      {description}
+    </div>
+    <div class="project__stack">
+      {
+        stack.map((technology: string) => (
+          <img
+            src={technology}
+            alt={`${technology} logo`}
+            width="40"
+            height="40"
+          />
+        ))
+      }
+    </div>
+    <div class="project__redirect-buttons redirect-buttons">
+      <a class="redirect-buttons__github" href={repo} target="_blank"
+        ><span>View code</span></a
+      >
+      <a class="redirect-buttons__production" href={prod} target="_blank"
+        ><span>View demo</span></a
+      >
+    </div>
+  </div>
+</article>
+
+<style lang="scss">
+  .project {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 40px;
+    border-bottom: solid 1px var(--blue-light);
+    gap: 40px;
+
+    &__image--iejewels {
+      border-radius: 50%;
+      padding: 20px;
+      filter: invert(20%) brightness(95%) contrast(100%);
+      background-color: #c4decd;
+    }
+
+    &__body {
+      display: flex;
+      align-items: center;
+      padding: 20px 0;
+      flex-direction: column;
+      width: 100%;
+      gap: 50px;
+    }
+
+    &__title {
+      font-family: var(--display-font);
+      font-weight: 300;
+      font-size: 3.5rem;
+      text-align: center;
+      color: var(--yellow);
+      width: 100%;
+    }
+
+    &__info {
+      width: 100%;
+      color: var(--blue-light);
+      font-family: var(--primary-font);
+      font-size: 1.8rem;
+      text-align: justify;
+      line-height: 3rem;
+    }
+
+    &__stack {
+      width: 100%;
+      height: fit-content;
+      padding: 10px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 3rem;
+      color: var(--yellow);
+      border-top: 1px solid var(--yellow);
+      border-bottom: 1px solid var(--yellow);
+    }
+  }
+
+  .redirect-buttons {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--blue-light);
+
+    &__github,
+    &__production {
+      padding: 10px 15px;
+      border: 1px solid var(--yellow);
+      width: 50%;
+      text-align: center;
+    }
+
+    &__github,
+    &__github:visited,
+    &__github:active,
+    &__production,
+    &__production:visited,
+    &__production:active {
+      color: var(--yellow);
+      background-color: transparent;
+      transition: 0.2s;
+
+      &:hover {
+        color: var(--blue-dark);
+        background-color: var(--yellow);
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .project {
+      &__body {
+        width: 55%;
+      }
+
+      &:nth-child(odd) {
+        flex-direction: row;
+      }
+
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+</style>
