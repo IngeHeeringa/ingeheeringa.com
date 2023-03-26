@@ -1,15 +1,15 @@
-import Angular from "../../assets/icons/angular.png";
-import ExpressJs from "../../assets/icons/express.png";
-import Jest from "../../assets/icons/jest.png";
-import JWT from "../../assets/icons/jwt.png";
-import MongoDB from "../../assets/icons/mongodb.png";
-import NodeJs from "../../assets/icons/nodejs.png";
-import React from "../../assets/icons/react.png";
-import Sass from "../../assets/icons/sass.png";
-import StyledComponents from "../../assets/icons/styledcomponents.png";
-import TypeScript from "../../assets/icons/ts.png";
-import peer2peerLogo from "../../assets/projects/peer2peer-logo.svg";
-import wiztagramLogo from "../../assets/projects/wiztagram-logo.svg";
+import Angular from "/assets/icons/angular.png";
+import ExpressJs from "/assets/icons/express.png";
+import Jest from "/assets/icons/jest.png";
+import JWT from "/assets/icons/jwt.png";
+import MongoDB from "/assets/icons/mongodb.png";
+import NodeJs from "/assets/icons/nodejs.png";
+import React from "/assets/icons/react.png";
+import Sass from "/assets/icons/sass.png";
+import StyledComponents from "/assets/icons/styledcomponents.png";
+import TypeScript from "/assets/icons/ts.png";
+import peer2peerLogo from "/assets/projects/peer2peer-logo.svg";
+import wiztagramLogo from "/assets/projects/wiztagram-logo.svg";
 import type { Project } from "./types";
 
 export const peer2peer: Project = {
