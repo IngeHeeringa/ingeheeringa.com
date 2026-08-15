@@ -14,6 +14,7 @@ Performance is a design constraint from the start, not a later pass — every im
 - Always set explicit `width`/`height` (or `aspect-ratio` in CSS) on every image to reserve layout space and prevent CLS.
 - Mark below-the-fold images `loading="lazy"`; the hero/first-viewport image should NOT be lazy-loaded (it's likely the LCP element and needs to load eagerly, ideally with `fetchpriority="high"`).
 - Serve appropriately sized images per viewport via `srcset`/`sizes` (Astro's `<Image />` widths option) rather than one large image scaled down by CSS.
+- Photos use square corners — don't apply `border-radius` to `<Image />`/`<Picture />` output.
 
 ## Font loading
 
