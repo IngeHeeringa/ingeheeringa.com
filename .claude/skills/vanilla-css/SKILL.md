@@ -10,7 +10,7 @@ This project is styled with plain CSS on purpose, as a showcase of CSS skill —
 ## Structure
 
 - Style with scoped `<style>` blocks in the same `.astro` file by default — Astro scopes automatically, so no global naming scheme is needed for most components.
-- Reserve global styles (e.g. `Layout.astro`'s `<style is:global>`) strictly for page-wide resets and tokens: CSS custom properties, `<html>`/`<body>` baseline, typographic defaults. Never put component-specific rules there.
+- Reserve global styles (`src/styles/global.css`, imported once in `Layout.astro`'s frontmatter) strictly for page-wide resets and tokens: CSS custom properties, `<html>`/`<body>` baseline, typographic defaults. Never put component-specific rules there.
 - Define design tokens as CSS custom properties on `:root` (matches the existing pattern) instead of repeating literal values across components.
 - For any class that must escape scoping (targeted via JS, or an intentional global override), use BEM-style naming (`block__element--modifier`).
 - Prefer modern native CSS over reaching for JS: nesting, `:has()`, container queries, `clamp()` for fluid sizing, logical properties.
